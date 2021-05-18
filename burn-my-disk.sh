@@ -15,7 +15,7 @@ function printUsage {
 	echo "BLOCK_SIZE (def: 4096) -- size of blocks to process at one time in bytes (bs in dd)"
 }
 
-if [[ -n "${1+set}" ]]; then
+if [ -n "${1+set}" ]; then
 	if [[ -e "$1" ]]; then
 		file=$1
 	else
@@ -27,7 +27,7 @@ else
 	exit 1
 fi
 
-if [[ -n "${2+set}" ]]; then
+if [ -n "${2+set}" ]; then
 	if [[ -e "$2" ]]; then
 		disk=$2
 	else
@@ -39,13 +39,13 @@ else
 	exit 1
 fi
 
-if [[ -n "${3+set}" ]]; then
+if [ -n "${3+set}" ]; then
 	thread_amount=$3
 else
 	thread_amount=8
 fi
 
-if [[ -n "${4+set}" ]]; then
+if [ -n "${4+set}" ]; then
 	block_size=$4
 else
 	block_size=4096
@@ -60,7 +60,7 @@ if ! command -v xzcat &> /dev/null; then
 	exit 3
 fi
 
-if [[ $size_of_file -gt $size_of_disk ]]; then
+if [ $size_of_file -gt $size_of_disk ]; then
 	echo "It certianly won't fit, chief!"
 	exit 4
 fi

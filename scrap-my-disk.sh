@@ -15,7 +15,7 @@ function printUsage {
 	echo "BLOCK_SIZE (def: 4096) -- size of blocks to process at one time in bytes (bs in dd)"
 }
 
-if [[ -n "${1+set}" ]]; then
+if [ -n "${1+set}" ]; then
 	if [[ -e "$1" ]]; then
 		disk=$1
 	else
@@ -27,20 +27,20 @@ else
 	exit 1
 fi
 
-if [[ -n "${2+set}" ]]; then
+if [ -n "${2+set}" ]; then
 	file=$2
 else
 	printUsage
 	exit 1
 fi
 
-if [[ -n "${3+set}" ]]; then
+if [ -n "${3+set}" ]; then
 	thread_amount=$3
 else
 	thread_amount=8
 fi
 
-if [[ -n "${4+set}" ]]; then
+if [ -n "${4+set}" ]; then
 	block_size=$4
 else
 	block_size=4096
